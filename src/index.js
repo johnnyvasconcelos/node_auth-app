@@ -12,5 +12,10 @@ app.listen(port, () => {
 });
 
 app.get('/', (req, res) => {
-  res.render();
+  res.send(
+    `<form>
+    <input name="email" />
+    <button type="submit">send</button>
+    </form>`,
+  );
 });
