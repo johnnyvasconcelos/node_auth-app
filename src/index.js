@@ -44,6 +44,9 @@ app.get('/', (req, res) => {
     <label class="main__form-label">enter your password</label>
     <input class="main__form-input password" name="password" type="password" placeholder="your password" required />
     <p class="main__error password-error">password field cannot be empty</p>
+    <p class="main__error leng-error">minimum of 6 characteres</p>
+    <p class="main__error uppercase-error">one uppercase letter</p>
+    <p class="main__error symbol-error">one symbol</p>
     </div>
     <div class="main__form-area">
     <label class="main__form-label">confirm your password</label>

@@ -8,36 +8,46 @@ const passwordError = document.querySelector('.password-error');
 const confirm = document.querySelector('.confirm-password');
 const confirmError = document.querySelector('.confirm-password-error');
 const identicalError = document.querySelector('.identical-error');
+const lengError = document.querySelector('.leng-error');
+const symbolError = document.querySelector('.symbol-error');
 
 button.addEventListener('click', function (e) {
   e.preventDefault();
 
-  if (nam.value.length === 0) {
-    namError.classList.add('show-error');
-  } else {
-    namError.classList.remove('show-error');
-  }
+  validate(nam, namError);
+  validate(email, emailError);
+  validate(password, passwordError);
+  validate(confirm, confirmError);
 
-  if (email.value.length === 0) {
-    emailError.classList.add('show-error');
-  } else {
-    emailError.classList.remove('show-error');
-  }
-
-  if (password.value.length === 0) {
-    passwordError.classList.add('show-error');
-  } else if (password.value !== confirm.value) {
+  if (confirm.value.trim() !== password.value.trim()) {
     identicalError.classList.add('show-error');
-    passwordError.classList.remove('show-error');
   } else {
-    passwordError.classList.remove('show-error');
     identicalError.classList.remove('show-error');
   }
 
-  if (confirm.value.length === 0) {
-    confirmError.classList.add('show-error');
-    confirmError.innerText = 'password field cannot be empty';
+  if (password.value.length < 6) {
+    lengError.classList.add('show-error');
   } else {
-    confirmError.classList.remove('show-error');
+    lengError.classList.remove('show-error');
+  }
+
+  if (!/[^\w\s]/.test(password.value)) {
+    symbolError.classList.add('show-error');
+  } else {
+    symbolError.classList.remove('show-error');
   }
 });
+
+// function - validate the inputs
+
+function validate(input, error) {
+  if (input.value.trim() === '') {
+    error.classList.add('show-error');
+
+    return false;
+  } else {
+    error.classList.remove('show-error');
+
+    return true;
+  }
+}
