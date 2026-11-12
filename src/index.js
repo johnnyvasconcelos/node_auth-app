@@ -1,8 +1,9 @@
 'use strict';
 
-import { register } from './register.js';
-import { login } from './login.js';
-import { home } from './home.js';
+import 'dotenv/config';
+import { register } from './pages/register.js';
+import { login } from './pages/login.js';
+import { home } from './pages/home.js';
 
 import express from 'express';
 
@@ -10,7 +11,7 @@ const app = express();
 
 app.use(express.static('src/public'));
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

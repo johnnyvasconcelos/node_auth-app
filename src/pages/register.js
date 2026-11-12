@@ -1,17 +1,17 @@
 export const register = `
-    <script src="/register-form.js" defer></script>
+    <script src="/scripts/register-form.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <main class="main">
-    <link rel="stylesheet" href="/form.css">
+    <link rel="stylesheet" href="/styles/form.css">
     <form class="main__form" method="get" action="./action.js">
     <h1 class="main__title">Create your account</h1>
     <p class="main__text">Password rules:</p>
     <ul class="main__list">
-    <li>Minimum of 6 characters</li>
-    <li>One uppercase letter</li>
-    <li>One symbol</li>
+    <li>• Minimum of 6 characters</li>
+    <li>• One uppercase letter</li>
+    <li>• One symbol</li>
     </ul>
     <div class="main__form-area">
     <label class="main__form-label">Insert your name</label>
@@ -37,5 +37,9 @@ export const register = `
     <p class="main__error confirm-password-error">password field cannot be empty</p>
     <p class="main__error identical-error">password and confirmation must be identical</p>
     </div>
-        <button type="submit">register</button>
-    </form></main>`;
+    <button type="submit">register</button>
+    </form>
+    <footer class="main__footer">
+    <p>Already have an account? <a href="/login">Sign in</a></p>
+    </footer>
+    </main>`;
