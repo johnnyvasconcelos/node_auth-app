@@ -4,12 +4,15 @@ import 'dotenv/config';
 import { register } from './pages/register.js';
 import { login } from './pages/login.js';
 import { home } from './pages/home.js';
+import { controllerRegister } from './controllers/auth.controller.js';
 
 import express from 'express';
 
 const app = express();
 
+app.use(express.json());
 app.use(express.static('src/public'));
+app.use(controllerRegister);
 
 const port = process.env.PORT || 3000;
 
