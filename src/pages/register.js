@@ -14,7 +14,7 @@ export const register = `
     <li>• One symbol</li>
     </ul>
     <div class="main__form-area">
-    <label class="main__form-label">Insert your name</label>
+    <label class="main__form-label">Insert your username</label>
     <input class="main__form-input name" name="username" placeholder="your name" type="text" required />
     <p class="main__error name-error">name field cannot be empty</p>
     </div>
