@@ -1,6 +1,7 @@
 'use strict';
 
 import 'dotenv/config';
+import { confirmEmail } from './pages/confirm-email.js';
 import { register } from './pages/register.js';
 import { login } from './pages/login.js';
 import { home } from './pages/home.js';
@@ -12,7 +13,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static('src/public'));
-app.use(controllerRegister);
+app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 3000;
 
@@ -25,10 +26,16 @@ app.get('/', (req, res) => {
   res.send(home);
 });
 
+app.post('/register', controllerRegister);
+
 app.get('/register', (req, res) => {
   res.send(register);
 });
 
 app.get('/login', (req, res) => {
   res.send(login);
+});
+
+app.get('/confirm-email', (req, res) => {
+  res.send(confirmEmail);
 });

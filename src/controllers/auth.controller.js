@@ -1,9 +1,9 @@
-import { user } from '../models/user';
+// import { user } from '../models/user.js';
 
 export const controllerRegister = async (req, res) => {
-  const { email, password, username } = req.body;
+  // const { email, password, username } = req.body;
 
-  const newUser = await user.create({ email, password, username });
+  // const newUser = await user.create({ email, password, username });
 
-  res.send(newUser);
+  res.redirect('/confirm-email');
 };

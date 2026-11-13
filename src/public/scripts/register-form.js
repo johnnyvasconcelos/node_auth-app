@@ -1,3 +1,4 @@
+const form = document.querySelector('form');
 const button = document.querySelector('button');
 const nam = document.querySelector('.name');
 const namError = document.querySelector('.name-error');
@@ -35,6 +36,12 @@ button.addEventListener('click', function (e) {
     symbolError.classList.add('show-error');
   } else {
     symbolError.classList.remove('show-error');
+  }
+
+  const hasErrors = document.querySelector('.show-error');
+
+  if (!hasErrors) {
+    form.submit();
   }
 });
 
