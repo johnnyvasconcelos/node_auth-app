@@ -9,12 +9,12 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendEmail = async (to, subject, message) => {
+export const sendEmail = async (to, subject, html) => {
   return transporter.sendMail({
     from: process.env.GMAIL_USER,
     to,
     subject,
-    message,
+    html,
   });
 };
 
@@ -26,11 +26,7 @@ const sendConfirmEmail = async (email, token) => {
   <a href="${href}">Confirm: ${href}</a>
   `;
 
-  return sendEmail({
-    email,
-    html,
-    message: 'Confirm your email!',
-  });
+  return sendEmail(email, 'confirm your email!', html);
 };
 
 export const emailService = {
